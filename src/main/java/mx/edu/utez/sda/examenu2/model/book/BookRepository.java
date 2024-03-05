@@ -1,5 +1,6 @@
-package mx.edu.utez.sda.examenu2.model;
+package mx.edu.utez.sda.examenu2.model.book;
 
+import mx.edu.utez.sda.examenu2.model.book.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
