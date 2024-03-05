@@ -28,18 +28,18 @@ public class BookService {
         );
     }
     @Transactional(readOnly = true)
-    public Response<List<Book>> getAllByAuthor(String author){
+    public Response<List<Book>> getAllByAuthor(){
         return new Response<>(
-                this.repository.findAllByAuthor(author),
+                this.repository.findAllByOrderByAuthorAsc(),
                 false,
                 200,
                 "OK"
         );
     }
     @Transactional(readOnly = true)
-    public Response<List<Book>> getAllByDate(Date date){
+    public Response<List<Book>> getAllByDate(){
         return new Response<>(
-                this.repository.findAllByPublication(date),
+                this.repository.findAllByOrderByPublicationAsc(),
                 false,
                 200,
                 "OK"

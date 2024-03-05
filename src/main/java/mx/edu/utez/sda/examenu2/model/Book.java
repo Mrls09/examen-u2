@@ -1,5 +1,6 @@
 package mx.edu.utez.sda.examenu2.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +24,7 @@ public class Book {
     @Column
     private String author;
     @Column
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date publication;
 
 }

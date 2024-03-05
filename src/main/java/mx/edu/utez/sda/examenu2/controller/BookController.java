@@ -24,24 +24,38 @@ public class BookController {
                 HttpStatus.OK
         );
     }
-    @GetMapping("/{author}")
-    public ResponseEntity<Response<List<Book>>> getAllByAuthor(@PathVariable("author") String author){
+    @GetMapping("/author/")
+    public ResponseEntity<Response<List<Book>>> getAllByAuthor(){
         return new ResponseEntity<>(
-                this.service.getAllByAuthor(author),
+                this.service.getAllByAuthor(),
                 HttpStatus.OK
         );
     }
-    @GetMapping("/{name_book}")
+    @GetMapping("/publication/")
+    public ResponseEntity<Response<List<Book>>> getAllByPublication(){
+        return new ResponseEntity<>(
+                this.service.getAllByDate(),
+                HttpStatus.OK
+        );
+    }
+    @GetMapping("/name/{name_book}")
     public ResponseEntity<Response<List<Book>>> getAllByName(@PathVariable("name_book")String name_book){
         return new ResponseEntity<>(
                 this.service.getAllByName(name_book),
                 HttpStatus.OK
         );
     }
-    @PutMapping("/")
-    public ResponseEntity<Response<Book>> update(BookDto dto){
+    @PostMapping("/")
+    public ResponseEntity<Response<Book>> insert(@RequestBody  BookDto dto){
         return new ResponseEntity<>(
                 this.service.insert(dto.getBook()),
+                HttpStatus.OK
+        );
+    }
+    @PutMapping("/")
+    public ResponseEntity<Response<Book>> update(@RequestBody BookDto dto){
+        return new ResponseEntity<>(
+                this.service.update(dto.getBook()),
                 HttpStatus.OK
         );
     }

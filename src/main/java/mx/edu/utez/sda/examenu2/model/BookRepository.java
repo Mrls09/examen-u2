@@ -13,4 +13,8 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> findAllByPublication(Date date);
 
     List<Book> findAllByName(String name_book);
+
+    List<Book>  findAllByOrderByAuthorAsc();
+
+    List<Book> findAllByOrderByPublicationAsc();
 }
